@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>The Jackal of Javascript</title>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <script src="components/platform/platform.js"></script>
+  <link rel="import" href="components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="post-list.html">
+  <style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #E5E5E5;
+    font-family:'RobotoDraft', sans-serif;
+  }
+  core-header-panel {
+    height: 100%;
+  }
+  core-toolbar {
+    background: #f45145;
+    color: white;
+  }
+  core-toolbar div {
+    text-transform: uppercase;
+    margin: 0px auto !important; /** override the ::content styles **/
+  }
+  .container {
+    width: 80%;
+    margin: 50px auto;
+  }
+  .loading {
+    text-align: center;
+  }
+  @media (min-width: 481px) {
+    .container {
+      width: 400px;
+    }
+  }
+  </style>
+</head>
+
+<body unresolved>
+  <core-header-panel>
+    <core-toolbar>
+      <div>The Jackal of Javascript</div>
+    </core-toolbar>
+    <div class="container" layout vertical center>
+      <post-list>
+      </post-list>
+    </div>
+    <h2 class="loading">Loading..</h2>
+  </core-header-panel>
+
+</body>
+
+</html>

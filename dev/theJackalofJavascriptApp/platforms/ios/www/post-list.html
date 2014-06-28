@@ -1,0 +1,51 @@
+<link rel="import" href="components/polymer/polymer.html">
+<link rel="import" href="post-service.html">
+<link rel="import" href="blog-post.html">
+
+<polymer-element name="post-list">
+  <template>
+    <style>
+    :host {
+      display: block;
+      width: 100%;
+    }
+    blog-post {
+      margin-bottom: 30px;
+    }
+    blog-post h2 a {
+      color: #f45145;
+      text-decoration: none;
+    }
+    blog-post .content {
+      color: #787878;
+      padding-bottom: 9px;
+    }
+    blog-post .date {
+      float: right;
+    }
+    blog-post .name {
+      float: left;
+    }
+    </style>
+
+    <post-service id="service" posts="{{posts}}"></post-service>
+    <div layout vertical center>
+      <template repeat="{{post in posts}}">
+        <blog-post>
+          <h2><a href='{{post.url}}'>{{post.title}}</a>
+          </h2>
+          <p class="content">{{post.excerpt}}</p>
+          <p class="name">{{post.name}}</p>
+          <p class="date">{{post.modified}}</p>
+        </blog-post>
+      </template>
+    </div>
+
+
+  </template>
+
+  <script>
+  Polymer({});
+  </script>
+
+</polymer-element>

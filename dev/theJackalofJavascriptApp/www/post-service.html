@@ -1,0 +1,55 @@
+<link rel="import" href="components/polymer/polymer.html">
+<link rel="import" href="components/core-ajax/core-ajax.html">
+
+<polymer-element name="post-service" attributes="posts">
+  <template>
+    <style>
+    :host {
+      display: none;
+    }
+    </style>
+    <core-ajax id="ajax" auto url="http://thejackalofjavascript.com/api/get_recent_posts/" on-core-response="{{postsLoaded}}" handleAs="json">
+    </core-ajax>
+  </template>
+  <script>
+  Polymer('post-service', {
+    created: function() {
+      this.posts = [];
+    },
+    postsLoaded: function() {
+      var data = this.$.ajax.response.posts,
+        posts = [],
+        el = document.createElement("div");
+      // build custom object
+      for (var i = 0; i < data.length; i++) {
+        //escape title
+        el.innerHTML = data[i].title;
+        var title = el.innerHTML;
+        //escape content
+        el.innerHTML = data[i].excerpt;
+        var excerpt = el.innerHTML;
+
+        posts.push({
+          url: data[i].url,
+          title: title,
+          excerpt: excerpt.replace('&nbsp;', ' ').replace('<p>', '').replace('</p>', ''),
+          modified: parseDate(data[i].modified),
+          name : data[i].author.name
+        });
+      };
+      // Make a copy of the loaded data
+      this.posts = posts;
+      document.querySelector('.loading').remove();
+    }
+  });
+
+  function parseDate(date) {
+    var d = new Date(date);
+    var months = ["January", "February", "March",
+      "April", "May", "June", "July", "August", "September",
+      "October", "November", "December"
+    ];
+    return d.getDate()+" - "+months[d.getMonth()]+" - "+d.getFullYear();
+  }
+  </script>
+</polymer-element>

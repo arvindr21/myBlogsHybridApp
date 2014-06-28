@@ -1,0 +1,33 @@
+<link rel="import" href="components/polymer/polymer.html">
+
+<polymer-element name="blog-post">
+  <template>
+    <style>
+    :host {
+      display: block;
+      position: relative;
+      background-color: white;
+      padding: 20px;
+      width: 100%;
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+    .post-header {
+      margin-bottom: 10px;
+    }
+    polyfill-next-selector { content: ".post-header h2"; }
+    .post-header ::content h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 300;
+    }
+    </style>
+    <div class="post-header" layout horizontal center>
+      <content select="h2"></content>
+    </div>
+    <content></content>
+  </template>
+  <script>
+  Polymer({});
+  </script>
+</polymer-element>

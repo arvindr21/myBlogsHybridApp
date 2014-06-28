@@ -1,0 +1,35 @@
+{
+  "name": "myBlogsHybridApp",
+  "version": "0.0.1",
+  "authors": [
+    "Arvind Ravulavaru <arvind.ravulavaru@gmail.com>"
+  ],
+  "description": "myBlogsHybridApp",
+  "keywords": [
+    "Blog",
+    "Hybrid",
+    "App",
+    "The",
+    "Jackal",
+    "of",
+    "Javascript"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "platform": "^0.3.3"
+  },
+  "dependencies": {
+    "polymer": "~0.3.3",
+    "platform": "~1.2.0",
+    "core-ajax": "polymer/core-ajax#~0.3.3",
+    "core-header-panel": "polymer/core-header-panel#~0.3.3",
+    "core-toolbar": "polymer/core-toolbar#~0.3.3"
+  }
+}
